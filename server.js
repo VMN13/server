@@ -11,7 +11,7 @@ function g(a,b){
 }
 
 function l(a,b){
-  return(a/g(a,b))*b;
+  return (a/g(a,b))*b;
 }
 
 http.createServer((req,res)=>{
@@ -22,11 +22,13 @@ http.createServer((req,res)=>{
     return;
   }
   const{x,y}=query;
-  if(!/^[1-9]\d*$/.test(x)||!/^[1-9]\d*$/.test(y)){
+  if(!x||!y||!/^[1-9]\d*$/.test(x)||!/^[1-9]\d*$/.test(y)){
     res.writeHead(200,{"Content-Type":"text/plain"});
     res.end("NaN");
     return;
   }
+  const a = BigInt(x);
+  const b = BigInt(y);
   res.writeHead(200,{"Content-Type":"text/plain"});
-  res.end(l(BigInt(x),BigInt(y))+"");
+  res.end(l(a,b)+"");
 }).listen(process.env.PORT||3000);
