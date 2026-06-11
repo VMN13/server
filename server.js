@@ -1,6 +1,5 @@
-
 const http=require("http"),url=require("url");
-const EMAIL_PATH="/Stayspaceflux_gmail_com";
+const EMAIL_PATH="/stayspaceflux_gmail_com";
 
 function g(a,b){
   while(b){
