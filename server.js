@@ -16,7 +16,7 @@ function l(a,b){
 
 http.createServer((req,res)=>{
   const{pathname,query}=url.parse(req.url,true);
-  if(req.method!=="GET"||pathname!==EMAIL_PATH){
+  if(req.method!=="GET"||pathname.toLowerCase()!==EMAIL_PATH){
     res.writeHead(404);
     res.end("NaN");
     return;
